@@ -1,0 +1,2 @@
+/usr/bin/ar qc libreactor.a CMakeFiles/reactor.dir/Channel.cpp.o CMakeFiles/reactor.dir/Dispatch.cpp.o CMakeFiles/reactor.dir/EventLoop.cpp.o CMakeFiles/reactor.dir/Socket.cpp.o
+/usr/bin/ranlib libreactor.a

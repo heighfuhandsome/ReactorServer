@@ -1,0 +1,27 @@
+[
+{
+  "directory": "/home/xj/projects/ReactorServer/build",
+  "command": "/usr/bin/g++  -I/home/xj/projects/ReactorServer -g -o CMakeFiles/demo.dir/main.cpp.o -c /home/xj/projects/ReactorServer/main.cpp",
+  "file": "/home/xj/projects/ReactorServer/main.cpp"
+},
+{
+  "directory": "/home/xj/projects/ReactorServer/build/src",
+  "command": "/usr/bin/g++  -I/home/xj/projects/ReactorServer -I/home/xj/projects/ReactorServer/src -g -o CMakeFiles/reactor.dir/Channel.cpp.o -c /home/xj/projects/ReactorServer/src/Channel.cpp",
+  "file": "/home/xj/projects/ReactorServer/src/Channel.cpp"
+},
+{
+  "directory": "/home/xj/projects/ReactorServer/build/src",
+  "command": "/usr/bin/g++  -I/home/xj/projects/ReactorServer -I/home/xj/projects/ReactorServer/src -g -o CMakeFiles/reactor.dir/Dispatch.cpp.o -c /home/xj/projects/ReactorServer/src/Dispatch.cpp",
+  "file": "/home/xj/projects/ReactorServer/src/Dispatch.cpp"
+},
+{
+  "directory": "/home/xj/projects/ReactorServer/build/src",
+  "command": "/usr/bin/g++  -I/home/xj/projects/ReactorServer -I/home/xj/projects/ReactorServer/src -g -o CMakeFiles/reactor.dir/EventLoop.cpp.o -c /home/xj/projects/ReactorServer/src/EventLoop.cpp",
+  "file": "/home/xj/projects/ReactorServer/src/EventLoop.cpp"
+},
+{
+  "directory": "/home/xj/projects/ReactorServer/build/src",
+  "command": "/usr/bin/g++  -I/home/xj/projects/ReactorServer -I/home/xj/projects/ReactorServer/src -g -o CMakeFiles/reactor.dir/Socket.cpp.o -c /home/xj/projects/ReactorServer/src/Socket.cpp",
+  "file": "/home/xj/projects/ReactorServer/src/Socket.cpp"
+}
+]
