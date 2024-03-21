@@ -92,6 +92,7 @@ demo_EXTERNAL_OBJECTS =
 
 demo: CMakeFiles/demo.dir/main.cpp.o
 demo: CMakeFiles/demo.dir/build.make
+demo: ../lib/libreactor.a
 demo: CMakeFiles/demo.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/xj/projects/ReactorServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Linking CXX executable demo"
 	$(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/demo.dir/link.txt --verbose=$(VERBOSE)

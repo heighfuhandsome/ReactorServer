@@ -1,4 +1,4 @@
-#include <EventLoop.h>
+#include "EventLoop.h"
 #include <cassert>
 #include <sys/socket.h>
 #include "Logger.h"
@@ -17,10 +17,10 @@ EventLoop::EventLoop():callFunc_(false),loop_(false),connCnt_(0)
     }
     weakUpChannel_ = std::make_unique<Channel>(this,pair[0]);
     weakUpFd_ = pair[1];
-    weakUpChannel_->setReadCallBack([this](){ 
+    weakUpChannel_->setReadCallBack([this]{
         char buff[128];
         ::recv(this->weakUpChannel_->fd(),buff,sizeof buff,0);
-        LOG_INFO("%s is weak up",this->name_);
+        LOG_INFO("%s is weak up",name_.c_str());
     });
     tid_ = std::this_thread::get_id();
     char nameBuf[128]{0};

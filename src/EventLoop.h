@@ -1,13 +1,15 @@
 #pragma once
 #include "noncopyable.h"
 #include <atomic>
-#include "Channel.h"
-#include "Dispatch.h"
 #include <unordered_map>
-#include <memory>
 #include <functional>
 #include <mutex>
 #include <thread>
+#include <memory>
+#include "Dispatch.h"
+#include "Channel.h"
+
+
 class EventLoop:noncopyable{
 public:
     EventLoop();
@@ -27,7 +29,7 @@ private:
     std::unique_ptr<Dispatch> dispatch_;
     std::mutex mutex_;
     std::vector<std::function<void()>> func_;
-    bool callFunc_;
+    std::atomic_bool callFunc_;
     std::unique_ptr<Channel> weakUpChannel_;
     int  weakUpFd_;
     std::thread::id tid_;

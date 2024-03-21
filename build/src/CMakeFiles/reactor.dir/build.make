@@ -69,10 +69,24 @@ include src/CMakeFiles/reactor.dir/progress.make
 # Include the compile flags for this target's objects.
 include src/CMakeFiles/reactor.dir/flags.make
 
+src/CMakeFiles/reactor.dir/Acceptor.cpp.o: src/CMakeFiles/reactor.dir/flags.make
+src/CMakeFiles/reactor.dir/Acceptor.cpp.o: ../src/Acceptor.cpp
+src/CMakeFiles/reactor.dir/Acceptor.cpp.o: src/CMakeFiles/reactor.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/ReactorServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/reactor.dir/Acceptor.cpp.o"
+	cd /home/xj/projects/ReactorServer/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/reactor.dir/Acceptor.cpp.o -MF CMakeFiles/reactor.dir/Acceptor.cpp.o.d -o CMakeFiles/reactor.dir/Acceptor.cpp.o -c /home/xj/projects/ReactorServer/src/Acceptor.cpp
+
+src/CMakeFiles/reactor.dir/Acceptor.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/reactor.dir/Acceptor.cpp.i"
+	cd /home/xj/projects/ReactorServer/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xj/projects/ReactorServer/src/Acceptor.cpp > CMakeFiles/reactor.dir/Acceptor.cpp.i
+
+src/CMakeFiles/reactor.dir/Acceptor.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/reactor.dir/Acceptor.cpp.s"
+	cd /home/xj/projects/ReactorServer/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xj/projects/ReactorServer/src/Acceptor.cpp -o CMakeFiles/reactor.dir/Acceptor.cpp.s
+
 src/CMakeFiles/reactor.dir/Channel.cpp.o: src/CMakeFiles/reactor.dir/flags.make
 src/CMakeFiles/reactor.dir/Channel.cpp.o: ../src/Channel.cpp
 src/CMakeFiles/reactor.dir/Channel.cpp.o: src/CMakeFiles/reactor.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/ReactorServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object src/CMakeFiles/reactor.dir/Channel.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/ReactorServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/reactor.dir/Channel.cpp.o"
 	cd /home/xj/projects/ReactorServer/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/reactor.dir/Channel.cpp.o -MF CMakeFiles/reactor.dir/Channel.cpp.o.d -o CMakeFiles/reactor.dir/Channel.cpp.o -c /home/xj/projects/ReactorServer/src/Channel.cpp
 
 src/CMakeFiles/reactor.dir/Channel.cpp.i: cmake_force
@@ -86,7 +100,7 @@ src/CMakeFiles/reactor.dir/Channel.cpp.s: cmake_force
 src/CMakeFiles/reactor.dir/Dispatch.cpp.o: src/CMakeFiles/reactor.dir/flags.make
 src/CMakeFiles/reactor.dir/Dispatch.cpp.o: ../src/Dispatch.cpp
 src/CMakeFiles/reactor.dir/Dispatch.cpp.o: src/CMakeFiles/reactor.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/ReactorServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object src/CMakeFiles/reactor.dir/Dispatch.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/ReactorServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/reactor.dir/Dispatch.cpp.o"
 	cd /home/xj/projects/ReactorServer/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/reactor.dir/Dispatch.cpp.o -MF CMakeFiles/reactor.dir/Dispatch.cpp.o.d -o CMakeFiles/reactor.dir/Dispatch.cpp.o -c /home/xj/projects/ReactorServer/src/Dispatch.cpp
 
 src/CMakeFiles/reactor.dir/Dispatch.cpp.i: cmake_force
@@ -100,7 +114,7 @@ src/CMakeFiles/reactor.dir/Dispatch.cpp.s: cmake_force
 src/CMakeFiles/reactor.dir/EventLoop.cpp.o: src/CMakeFiles/reactor.dir/flags.make
 src/CMakeFiles/reactor.dir/EventLoop.cpp.o: ../src/EventLoop.cpp
 src/CMakeFiles/reactor.dir/EventLoop.cpp.o: src/CMakeFiles/reactor.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/ReactorServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building CXX object src/CMakeFiles/reactor.dir/EventLoop.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/ReactorServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/reactor.dir/EventLoop.cpp.o"
 	cd /home/xj/projects/ReactorServer/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/reactor.dir/EventLoop.cpp.o -MF CMakeFiles/reactor.dir/EventLoop.cpp.o.d -o CMakeFiles/reactor.dir/EventLoop.cpp.o -c /home/xj/projects/ReactorServer/src/EventLoop.cpp
 
 src/CMakeFiles/reactor.dir/EventLoop.cpp.i: cmake_force
@@ -111,10 +125,38 @@ src/CMakeFiles/reactor.dir/EventLoop.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/reactor.dir/EventLoop.cpp.s"
 	cd /home/xj/projects/ReactorServer/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xj/projects/ReactorServer/src/EventLoop.cpp -o CMakeFiles/reactor.dir/EventLoop.cpp.s
 
+src/CMakeFiles/reactor.dir/EventLoopThread.cpp.o: src/CMakeFiles/reactor.dir/flags.make
+src/CMakeFiles/reactor.dir/EventLoopThread.cpp.o: ../src/EventLoopThread.cpp
+src/CMakeFiles/reactor.dir/EventLoopThread.cpp.o: src/CMakeFiles/reactor.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/ReactorServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Building CXX object src/CMakeFiles/reactor.dir/EventLoopThread.cpp.o"
+	cd /home/xj/projects/ReactorServer/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/reactor.dir/EventLoopThread.cpp.o -MF CMakeFiles/reactor.dir/EventLoopThread.cpp.o.d -o CMakeFiles/reactor.dir/EventLoopThread.cpp.o -c /home/xj/projects/ReactorServer/src/EventLoopThread.cpp
+
+src/CMakeFiles/reactor.dir/EventLoopThread.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/reactor.dir/EventLoopThread.cpp.i"
+	cd /home/xj/projects/ReactorServer/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xj/projects/ReactorServer/src/EventLoopThread.cpp > CMakeFiles/reactor.dir/EventLoopThread.cpp.i
+
+src/CMakeFiles/reactor.dir/EventLoopThread.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/reactor.dir/EventLoopThread.cpp.s"
+	cd /home/xj/projects/ReactorServer/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xj/projects/ReactorServer/src/EventLoopThread.cpp -o CMakeFiles/reactor.dir/EventLoopThread.cpp.s
+
+src/CMakeFiles/reactor.dir/InetAddr.cpp.o: src/CMakeFiles/reactor.dir/flags.make
+src/CMakeFiles/reactor.dir/InetAddr.cpp.o: ../src/InetAddr.cpp
+src/CMakeFiles/reactor.dir/InetAddr.cpp.o: src/CMakeFiles/reactor.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/ReactorServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_6) "Building CXX object src/CMakeFiles/reactor.dir/InetAddr.cpp.o"
+	cd /home/xj/projects/ReactorServer/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/reactor.dir/InetAddr.cpp.o -MF CMakeFiles/reactor.dir/InetAddr.cpp.o.d -o CMakeFiles/reactor.dir/InetAddr.cpp.o -c /home/xj/projects/ReactorServer/src/InetAddr.cpp
+
+src/CMakeFiles/reactor.dir/InetAddr.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/reactor.dir/InetAddr.cpp.i"
+	cd /home/xj/projects/ReactorServer/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xj/projects/ReactorServer/src/InetAddr.cpp > CMakeFiles/reactor.dir/InetAddr.cpp.i
+
+src/CMakeFiles/reactor.dir/InetAddr.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/reactor.dir/InetAddr.cpp.s"
+	cd /home/xj/projects/ReactorServer/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xj/projects/ReactorServer/src/InetAddr.cpp -o CMakeFiles/reactor.dir/InetAddr.cpp.s
+
 src/CMakeFiles/reactor.dir/Socket.cpp.o: src/CMakeFiles/reactor.dir/flags.make
 src/CMakeFiles/reactor.dir/Socket.cpp.o: ../src/Socket.cpp
 src/CMakeFiles/reactor.dir/Socket.cpp.o: src/CMakeFiles/reactor.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/ReactorServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Building CXX object src/CMakeFiles/reactor.dir/Socket.cpp.o"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/ReactorServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_7) "Building CXX object src/CMakeFiles/reactor.dir/Socket.cpp.o"
 	cd /home/xj/projects/ReactorServer/build/src && /usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT src/CMakeFiles/reactor.dir/Socket.cpp.o -MF CMakeFiles/reactor.dir/Socket.cpp.o.d -o CMakeFiles/reactor.dir/Socket.cpp.o -c /home/xj/projects/ReactorServer/src/Socket.cpp
 
 src/CMakeFiles/reactor.dir/Socket.cpp.i: cmake_force
@@ -127,26 +169,32 @@ src/CMakeFiles/reactor.dir/Socket.cpp.s: cmake_force
 
 # Object files for target reactor
 reactor_OBJECTS = \
+"CMakeFiles/reactor.dir/Acceptor.cpp.o" \
 "CMakeFiles/reactor.dir/Channel.cpp.o" \
 "CMakeFiles/reactor.dir/Dispatch.cpp.o" \
 "CMakeFiles/reactor.dir/EventLoop.cpp.o" \
+"CMakeFiles/reactor.dir/EventLoopThread.cpp.o" \
+"CMakeFiles/reactor.dir/InetAddr.cpp.o" \
 "CMakeFiles/reactor.dir/Socket.cpp.o"
 
 # External object files for target reactor
 reactor_EXTERNAL_OBJECTS =
 
-src/libreactor.a: src/CMakeFiles/reactor.dir/Channel.cpp.o
-src/libreactor.a: src/CMakeFiles/reactor.dir/Dispatch.cpp.o
-src/libreactor.a: src/CMakeFiles/reactor.dir/EventLoop.cpp.o
-src/libreactor.a: src/CMakeFiles/reactor.dir/Socket.cpp.o
-src/libreactor.a: src/CMakeFiles/reactor.dir/build.make
-src/libreactor.a: src/CMakeFiles/reactor.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/xj/projects/ReactorServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_5) "Linking CXX static library libreactor.a"
+../lib/libreactor.a: src/CMakeFiles/reactor.dir/Acceptor.cpp.o
+../lib/libreactor.a: src/CMakeFiles/reactor.dir/Channel.cpp.o
+../lib/libreactor.a: src/CMakeFiles/reactor.dir/Dispatch.cpp.o
+../lib/libreactor.a: src/CMakeFiles/reactor.dir/EventLoop.cpp.o
+../lib/libreactor.a: src/CMakeFiles/reactor.dir/EventLoopThread.cpp.o
+../lib/libreactor.a: src/CMakeFiles/reactor.dir/InetAddr.cpp.o
+../lib/libreactor.a: src/CMakeFiles/reactor.dir/Socket.cpp.o
+../lib/libreactor.a: src/CMakeFiles/reactor.dir/build.make
+../lib/libreactor.a: src/CMakeFiles/reactor.dir/link.txt
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/xj/projects/ReactorServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_8) "Linking CXX static library ../../lib/libreactor.a"
 	cd /home/xj/projects/ReactorServer/build/src && $(CMAKE_COMMAND) -P CMakeFiles/reactor.dir/cmake_clean_target.cmake
 	cd /home/xj/projects/ReactorServer/build/src && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/reactor.dir/link.txt --verbose=$(VERBOSE)
 
 # Rule to build all files generated by this target.
-src/CMakeFiles/reactor.dir/build: src/libreactor.a
+src/CMakeFiles/reactor.dir/build: ../lib/libreactor.a
 .PHONY : src/CMakeFiles/reactor.dir/build
 
 src/CMakeFiles/reactor.dir/clean:

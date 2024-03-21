@@ -11,7 +11,9 @@
 		"commands" : 
 		[
 			"add_executable",
-			"include_directories"
+			"link_directories",
+			"target_link_libraries",
+			"add_compile_options"
 		],
 		"files" : 
 		[
@@ -25,13 +27,25 @@
 			{
 				"command" : 0,
 				"file" : 0,
-				"line" : 9,
+				"line" : 13,
 				"parent" : 0
 			},
 			{
 				"command" : 1,
 				"file" : 0,
-				"line" : 3,
+				"line" : 7,
+				"parent" : 0
+			},
+			{
+				"command" : 2,
+				"file" : 0,
+				"line" : 15,
+				"parent" : 0
+			},
+			{
+				"command" : 3,
+				"file" : 0,
+				"line" : 9,
 				"parent" : 0
 			}
 		]
@@ -42,14 +56,8 @@
 			"compileCommandFragments" : 
 			[
 				{
-					"fragment" : "-g"
-				}
-			],
-			"includes" : 
-			[
-				{
-					"backtrace" : 2,
-					"path" : "/home/xj/projects/ReactorServer"
+					"backtrace" : 4,
+					"fragment" : "--std=c++17"
 				}
 			],
 			"language" : "CXX",
@@ -59,18 +67,45 @@
 			]
 		}
 	],
+	"dependencies" : 
+	[
+		{
+			"backtrace" : 3,
+			"id" : "reactor::@145eef247bfb46b6828c"
+		}
+	],
 	"id" : "demo::@6890427a1f51a3e7e1df",
 	"link" : 
 	{
 		"commandFragments" : 
 		[
 			{
-				"fragment" : "-g",
+				"fragment" : "-rdynamic",
 				"role" : "flags"
 			},
 			{
-				"fragment" : "-rdynamic",
-				"role" : "flags"
+				"backtrace" : 2,
+				"fragment" : "-L/home/xj/projects/ReactorServer",
+				"role" : "libraryPath"
+			},
+			{
+				"fragment" : "-Wl,-rpath,/home/xj/projects/ReactorServer",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lpthread",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "../lib/libreactor.a",
+				"role" : "libraries"
+			},
+			{
+				"backtrace" : 3,
+				"fragment" : "-lpthread",
+				"role" : "libraries"
 			}
 		],
 		"language" : "CXX"

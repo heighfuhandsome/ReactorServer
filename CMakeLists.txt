@@ -1,9 +1,15 @@
 cmake_minimum_required(VERSION 3.0.0)
 
-include_directories(${CMAKE_CURRENT_SOURCE_DIR})
+project(ReactorServer CXX)
 
-#set(${EXECUTABLE_OUTPUT_PATH} ./bin)
+set(LIBRARY_OUTPUT_PATH ${PROJECT_SOURCE_DIR}/lib)
+
+link_directories(${CMAKE_CURRENT_SOURCE_DIR})
+
+add_compile_options(--std=c++17)
 
 add_subdirectory(${PROJECT_SOURCE_DIR}/src)
 
 add_executable(demo main.cpp)
+
+target_link_libraries(demo pthread reactor)

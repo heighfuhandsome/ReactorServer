@@ -130,6 +130,30 @@ reactor/fast:
 	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/reactor.dir/build.make src/CMakeFiles/reactor.dir/build
 .PHONY : reactor/fast
 
+Acceptor.o: Acceptor.cpp.o
+.PHONY : Acceptor.o
+
+# target to build an object file
+Acceptor.cpp.o:
+	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/reactor.dir/build.make src/CMakeFiles/reactor.dir/Acceptor.cpp.o
+.PHONY : Acceptor.cpp.o
+
+Acceptor.i: Acceptor.cpp.i
+.PHONY : Acceptor.i
+
+# target to preprocess a source file
+Acceptor.cpp.i:
+	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/reactor.dir/build.make src/CMakeFiles/reactor.dir/Acceptor.cpp.i
+.PHONY : Acceptor.cpp.i
+
+Acceptor.s: Acceptor.cpp.s
+.PHONY : Acceptor.s
+
+# target to generate assembly for a file
+Acceptor.cpp.s:
+	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/reactor.dir/build.make src/CMakeFiles/reactor.dir/Acceptor.cpp.s
+.PHONY : Acceptor.cpp.s
+
 Channel.o: Channel.cpp.o
 .PHONY : Channel.o
 
@@ -202,6 +226,54 @@ EventLoop.cpp.s:
 	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/reactor.dir/build.make src/CMakeFiles/reactor.dir/EventLoop.cpp.s
 .PHONY : EventLoop.cpp.s
 
+EventLoopThread.o: EventLoopThread.cpp.o
+.PHONY : EventLoopThread.o
+
+# target to build an object file
+EventLoopThread.cpp.o:
+	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/reactor.dir/build.make src/CMakeFiles/reactor.dir/EventLoopThread.cpp.o
+.PHONY : EventLoopThread.cpp.o
+
+EventLoopThread.i: EventLoopThread.cpp.i
+.PHONY : EventLoopThread.i
+
+# target to preprocess a source file
+EventLoopThread.cpp.i:
+	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/reactor.dir/build.make src/CMakeFiles/reactor.dir/EventLoopThread.cpp.i
+.PHONY : EventLoopThread.cpp.i
+
+EventLoopThread.s: EventLoopThread.cpp.s
+.PHONY : EventLoopThread.s
+
+# target to generate assembly for a file
+EventLoopThread.cpp.s:
+	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/reactor.dir/build.make src/CMakeFiles/reactor.dir/EventLoopThread.cpp.s
+.PHONY : EventLoopThread.cpp.s
+
+InetAddr.o: InetAddr.cpp.o
+.PHONY : InetAddr.o
+
+# target to build an object file
+InetAddr.cpp.o:
+	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/reactor.dir/build.make src/CMakeFiles/reactor.dir/InetAddr.cpp.o
+.PHONY : InetAddr.cpp.o
+
+InetAddr.i: InetAddr.cpp.i
+.PHONY : InetAddr.i
+
+# target to preprocess a source file
+InetAddr.cpp.i:
+	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/reactor.dir/build.make src/CMakeFiles/reactor.dir/InetAddr.cpp.i
+.PHONY : InetAddr.cpp.i
+
+InetAddr.s: InetAddr.cpp.s
+.PHONY : InetAddr.s
+
+# target to generate assembly for a file
+InetAddr.cpp.s:
+	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f src/CMakeFiles/reactor.dir/build.make src/CMakeFiles/reactor.dir/InetAddr.cpp.s
+.PHONY : InetAddr.cpp.s
+
 Socket.o: Socket.cpp.o
 .PHONY : Socket.o
 
@@ -235,6 +307,9 @@ help:
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
 	@echo "... reactor"
+	@echo "... Acceptor.o"
+	@echo "... Acceptor.i"
+	@echo "... Acceptor.s"
 	@echo "... Channel.o"
 	@echo "... Channel.i"
 	@echo "... Channel.s"
@@ -244,6 +319,12 @@ help:
 	@echo "... EventLoop.o"
 	@echo "... EventLoop.i"
 	@echo "... EventLoop.s"
+	@echo "... EventLoopThread.o"
+	@echo "... EventLoopThread.i"
+	@echo "... EventLoopThread.s"
+	@echo "... InetAddr.o"
+	@echo "... InetAddr.i"
+	@echo "... InetAddr.s"
 	@echo "... Socket.o"
 	@echo "... Socket.i"
 	@echo "... Socket.s"

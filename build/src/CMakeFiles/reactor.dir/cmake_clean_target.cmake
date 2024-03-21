@@ -1,3 +1,3 @@
 file(REMOVE_RECURSE
-  "libreactor.a"
+  "../../lib/libreactor.a"
 )

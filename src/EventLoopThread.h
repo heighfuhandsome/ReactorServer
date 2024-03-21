@@ -1,34 +1,28 @@
 #pragma once
 #include "noncopyable.h"
 #include <vector>
-#include "EventLoop.h"
 #include <cassert>
+#include <mutex>
+#include <condition_variable>
+#include <memory>
+
+class EventLoop;
 class EventLoopThread:noncopyable{
 public:
-    EventLoopThread(unsigned char size):size_(size){
+    explicit EventLoopThread(unsigned char size):size_(size){
         loops_.reserve(size);
     }
 
-    void start()
-    {
-        for(int i=0;i<size_;i++)
-        {
-            
-        }
-    }
-    void stop()
-    {
+    unsigned char size()const{return size_;}
 
-    }
-
-    void initThread(EventLoop **loop){
-        
-    }
+    void start();
+    void stop();
 private:
-
-
+    void initThread(EventLoop **returnLoop);
 
 private:
     unsigned char size_;
-    std::vector<std::unique_ptr<EventLoop>> loops_;
+    std::vector<std::shared_ptr<EventLoop>> loops_;
+    std::mutex mutex_;
+    std::condition_variable cond_;
 };

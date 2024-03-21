@@ -9,7 +9,18 @@ Dispatch::Dispatch(EventLoop *loop):loop_(loop)
     {
         LOG_FATAL("%s",strerror(errno));
     }
-    events_.reserve(128);
+
+    epollEvents_.currentSize_ = 128;
+    epollEvents_.events_ = (epoll_event*)::malloc(sizeof(epoll_event)*epollEvents_.currentSize_);
+}
+
+Dispatch::~Dispatch()
+{
+    if(epollEvents_.events_)
+    {
+        ::free(epollEvents_.events_);
+        epollEvents_.events_ = nullptr;
+    }
 }
 
 void Dispatch::updateChannel(Channel *channel, std::unordered_map<int, Channel *> &map)
@@ -21,6 +32,7 @@ void Dispatch::updateChannel(Channel *channel, std::unordered_map<int, Channel *
         if (index==Channel::KNew)
         {
           assert(map.find(fd) == map.end());  
+          map[channel->fd()] = channel;
         }else{
           assert(map.find(fd) != map.end());  
         }
@@ -40,16 +52,18 @@ void Dispatch::updateChannel(Channel *channel, std::unordered_map<int, Channel *
 
 void Dispatch::dispatch(std::unordered_map<int,Channel *>& Channels)
 {
-    int len = epoll_wait(efd_,&(*events_.begin()),static_cast<int>(events_.size()),-1);
+    int len = epoll_wait(efd_,epollEvents_.events_,epollEvents_.currentSize_,-1);
     if (len < 0)
     {
-        LOG_ERROR("%s",strerror(errno));
+        LOG_FATAL("epoll_wait efd = %d %s",efd_,strerror(errno));
     }else{
-        for(struct epoll_event &e : events_){
-            Channels[e.data.fd]->handerEvent(static_cast<int>(e.events));
+        for(int i=0;i<len;i++)
+        {
+            epoll_event &event = epollEvents_.events_[i];
+            Channels[event.data.fd]->handerEvent(static_cast<int>(event.events));
         }
-        if (len == events_.size())
-            events_.resize(events_.size()*2);
+        if(len == epollEvents_.currentSize_)
+            epollEvents_.expend();
     }
     
 }
@@ -68,7 +82,6 @@ void Dispatch::update(Channel *channel, int operation)
         {
             exit(-1);
         }
-        
     }
 }
 

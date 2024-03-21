@@ -26,7 +26,8 @@ public:
     int events(){return events_;}
     void setIndex(u_char index){index_ = index;}
     void setReadCallBack(CallBack func){ readCallback_ = std::move(func); }
-    
+    void setCloseCallBack(CallBack func){ closeCallback_ = std::move(func); }
+
     void handerEvent(int event);
     void enableRead() { events_ |= EPOLLIN;updateEvent(); }
     void enableWrite(){ events_ |= EPOLLOUT;updateEvent();}
