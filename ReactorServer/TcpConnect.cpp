@@ -27,6 +27,8 @@ peerAddr_(peerAddr_),status_(ConnStatus::DISCONNECT)
     channel_->enableRead();
     if (connectCallBack_)
     {
+        status_ = ConnStatus::CONNECTED;
+
         if(loop_->isInLoopThread())
         {
             connectCallBack_(shared_from_this());
@@ -112,6 +114,13 @@ void TcpConnect::handlerRead()
 
 void TcpConnect::handlerClose()
 {
+    status_ = ConnStatus::DISCONNECT;
+    if (connectCallBack_)
+    {
+        connectCallBack_(shared_from_this());
+    }
+    
+
     if (closeCallBack_)
     {
         closeCallBack_(shared_from_this());
@@ -130,6 +139,5 @@ void TcpConnect::handlerWrite()
     }
 
     bool complete = out_.readableBytes() == 0;    
-
     complete? channel_->disableWrite() ? writeComplteteCallBack_ != nullptr ? writeComplteteCallBack_(shared_from_this()) : 0 :0 :0;
 }

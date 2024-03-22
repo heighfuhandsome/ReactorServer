@@ -250,29 +250,29 @@ EventLoop.cpp.s:
 	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f ReactorServer/CMakeFiles/reactor.dir/build.make ReactorServer/CMakeFiles/reactor.dir/EventLoop.cpp.s
 .PHONY : EventLoop.cpp.s
 
-EventLoopThread.o: EventLoopThread.cpp.o
-.PHONY : EventLoopThread.o
+EventLoopThreadPoll.o: EventLoopThreadPoll.cpp.o
+.PHONY : EventLoopThreadPoll.o
 
 # target to build an object file
-EventLoopThread.cpp.o:
-	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f ReactorServer/CMakeFiles/reactor.dir/build.make ReactorServer/CMakeFiles/reactor.dir/EventLoopThread.cpp.o
-.PHONY : EventLoopThread.cpp.o
+EventLoopThreadPoll.cpp.o:
+	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f ReactorServer/CMakeFiles/reactor.dir/build.make ReactorServer/CMakeFiles/reactor.dir/EventLoopThreadPoll.cpp.o
+.PHONY : EventLoopThreadPoll.cpp.o
 
-EventLoopThread.i: EventLoopThread.cpp.i
-.PHONY : EventLoopThread.i
+EventLoopThreadPoll.i: EventLoopThreadPoll.cpp.i
+.PHONY : EventLoopThreadPoll.i
 
 # target to preprocess a source file
-EventLoopThread.cpp.i:
-	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f ReactorServer/CMakeFiles/reactor.dir/build.make ReactorServer/CMakeFiles/reactor.dir/EventLoopThread.cpp.i
-.PHONY : EventLoopThread.cpp.i
+EventLoopThreadPoll.cpp.i:
+	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f ReactorServer/CMakeFiles/reactor.dir/build.make ReactorServer/CMakeFiles/reactor.dir/EventLoopThreadPoll.cpp.i
+.PHONY : EventLoopThreadPoll.cpp.i
 
-EventLoopThread.s: EventLoopThread.cpp.s
-.PHONY : EventLoopThread.s
+EventLoopThreadPoll.s: EventLoopThreadPoll.cpp.s
+.PHONY : EventLoopThreadPoll.s
 
 # target to generate assembly for a file
-EventLoopThread.cpp.s:
-	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f ReactorServer/CMakeFiles/reactor.dir/build.make ReactorServer/CMakeFiles/reactor.dir/EventLoopThread.cpp.s
-.PHONY : EventLoopThread.cpp.s
+EventLoopThreadPoll.cpp.s:
+	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f ReactorServer/CMakeFiles/reactor.dir/build.make ReactorServer/CMakeFiles/reactor.dir/EventLoopThreadPoll.cpp.s
+.PHONY : EventLoopThreadPoll.cpp.s
 
 InetAddr.o: InetAddr.cpp.o
 .PHONY : InetAddr.o
@@ -370,9 +370,9 @@ help:
 	@echo "... EventLoop.o"
 	@echo "... EventLoop.i"
 	@echo "... EventLoop.s"
-	@echo "... EventLoopThread.o"
-	@echo "... EventLoopThread.i"
-	@echo "... EventLoopThread.s"
+	@echo "... EventLoopThreadPoll.o"
+	@echo "... EventLoopThreadPoll.i"
+	@echo "... EventLoopThreadPoll.s"
 	@echo "... InetAddr.o"
 	@echo "... InetAddr.i"
 	@echo "... InetAddr.s"

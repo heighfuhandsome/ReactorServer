@@ -1140,9 +1140,9 @@ ReactorServer/CMakeFiles/reactor.dir/EventLoop.cpp.o: ../ReactorServer/EventLoop
   /usr/include/strings.h \
   /usr/include/c++/11/cstdarg
 
-ReactorServer/CMakeFiles/reactor.dir/EventLoopThread.cpp.o: ../ReactorServer/EventLoopThread.cpp \
+ReactorServer/CMakeFiles/reactor.dir/EventLoopThreadPoll.cpp.o: ../ReactorServer/EventLoopThreadPoll.cpp \
   /usr/include/stdc-predef.h \
-  ../ReactorServer/EventLoopThread.h \
+  ../ReactorServer/EventLoopThreadPoll.h \
   ../ReactorServer/noncopyable.h \
   /usr/include/c++/11/vector \
   /usr/include/c++/11/bits/stl_algobase.h \
@@ -2081,7 +2081,7 @@ ReactorServer/CMakeFiles/reactor.dir/TcpConnect.cpp.o: ../ReactorServer/TcpConne
 
 ../ReactorServer/InetAddr.cpp:
 
-../ReactorServer/EventLoopThread.cpp:
+../ReactorServer/EventLoopThreadPoll.h:
 
 ../ReactorServer/EventLoop.cpp:
 
@@ -2166,6 +2166,8 @@ ReactorServer/CMakeFiles/reactor.dir/TcpConnect.cpp.o: ../ReactorServer/TcpConne
 /usr/include/c++/11/debug/assertions.h:
 
 ../ReactorServer/Socket.h:
+
+../ReactorServer/EventLoopThreadPoll.cpp:
 
 /usr/include/linux/close_range.h:
 
@@ -2394,8 +2396,6 @@ ReactorServer/CMakeFiles/reactor.dir/TcpConnect.cpp.o: ../ReactorServer/TcpConne
 /usr/include/x86_64-linux-gnu/asm/socket.h:
 
 /usr/include/stdlib.h:
-
-../ReactorServer/EventLoopThread.h:
 
 /usr/include/x86_64-linux-gnu/bits/types/sigset_t.h:
 

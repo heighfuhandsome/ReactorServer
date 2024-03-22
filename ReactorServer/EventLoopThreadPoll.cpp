@@ -1,9 +1,9 @@
 //
 // Created by jiexiao on 2024/3/20.
 //
-#include "EventLoopThread.h"
+#include "EventLoopThreadPoll.h"
 #include "EventLoop.h"
-void EventLoopThread::start() {
+void EventLoopThreadPoll::start() {
     for(int i=0;i<size_;i++)
     {
         std::unique_lock<std::mutex> mutex(mutex_);
@@ -20,14 +20,14 @@ void EventLoopThread::start() {
 
 }
 
-void EventLoopThread::stop() {
+void EventLoopThreadPoll::stop() {
     for(auto &e:loops_)
     {
         e->stop();
     }
 }
 
-void EventLoopThread::initThread(EventLoop **returnLoop) {
+void EventLoopThreadPoll::initThread(EventLoop **returnLoop) {
     EventLoop loop;
     {
         std::lock_guard<std::mutex> guard(mutex_);

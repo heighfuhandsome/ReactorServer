@@ -18,6 +18,10 @@ public:
     std::any& getContext() {return context_;}
     template <typename T>
     void setContext(T &&t){ context_ = t;}
+    void setConnectCallBack(const std::function<void(const std::shared_ptr<TcpConnect>)> &func){ connectCallBack_ = func; }
+    void setCloseCallBack(const std::function<void(const std::shared_ptr<TcpConnect>)> &func){  closeCallBack_= func; }
+    void setWriteCompleteCallBack(const std::function<int(const std::shared_ptr<TcpConnect>)> &func){ writeComplteteCallBack_= func; }
+    void setReadCallBack(const std::function<void(const std::shared_ptr<TcpConnect>,Buffer &buffer)> &func){  readCallBack_ = func; };
 private:
     void handlerRead();
     void handlerClose();

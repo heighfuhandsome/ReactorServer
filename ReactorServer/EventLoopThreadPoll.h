@@ -7,9 +7,9 @@
 #include <memory>
 
 class EventLoop;
-class EventLoopThread:noncopyable{
+class EventLoopThreadPoll:noncopyable{
 public:
-    explicit EventLoopThread(unsigned char size):size_(size){
+    explicit EventLoopThreadPoll(unsigned char size):size_(size){
         loops_.reserve(size);
     }
 
