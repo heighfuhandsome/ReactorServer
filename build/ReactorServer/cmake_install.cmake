@@ -1,4 +1,4 @@
-# Install script for directory: /home/xj/projects/ReactorServer/src
+# Install script for directory: /home/xj/projects/ReactorServer/ReactorServer
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)

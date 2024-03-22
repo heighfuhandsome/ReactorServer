@@ -47,6 +47,10 @@ InetAddr::InetAddr(const InetAddr &addr) {
     operator=(addr);
 }
 
-InetAddr::InetAddr(const sockaddr &addr):InetAddr(::inet_ntoa())
+InetAddr::InetAddr(const sockaddr &addr):InetAddr(*(reinterpret_cast<sockaddr_in*>(&const_cast<sockaddr&>(addr))))
+{
+}
+
+InetAddr::InetAddr(const sockaddr_in &addr):InetAddr(::inet_ntoa(addr.sin_addr),::ntohs(addr.sin_port))
 {
 }

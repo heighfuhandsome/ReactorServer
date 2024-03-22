@@ -139,7 +139,7 @@ reactor: cmake_check_build_system
 
 # fast build rule for target.
 reactor/fast:
-	$(MAKE) $(MAKESILENT) -f src/CMakeFiles/reactor.dir/build.make src/CMakeFiles/reactor.dir/build
+	$(MAKE) $(MAKESILENT) -f ReactorServer/CMakeFiles/reactor.dir/build.make ReactorServer/CMakeFiles/reactor.dir/build
 .PHONY : reactor/fast
 
 main.o: main.cpp.o

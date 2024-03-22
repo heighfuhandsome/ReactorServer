@@ -16,6 +16,7 @@ class Channel : noncopyable{
     typedef unsigned char uchar;
 public:
     Channel(EventLoop *loop,int fd);
+    ~Channel() = default;
 public:
     const static uchar KNew = 1;
     const static uchar KAdded = 2;
@@ -27,12 +28,13 @@ public:
     void setIndex(u_char index){index_ = index;}
     void setReadCallBack(CallBack func){ readCallback_ = std::move(func); }
     void setCloseCallBack(CallBack func){ closeCallback_ = std::move(func); }
+    void setWriteCallBack(CallBack func){  writeCallback_ = std::move(func); }
 
     void handerEvent(int event);
     void enableRead() { events_ |= EPOLLIN;updateEvent(); }
     void enableWrite(){ events_ |= EPOLLOUT;updateEvent();}
     void disableRead() { events_ &= ~EPOLLIN; updateEvent(); }
-    void disableWrite() {events_ &= ~EPOLLOUT;updateEvent();}
+    int disableWrite() {events_ &= ~EPOLLOUT;updateEvent(); return 1;}
     void disableAll() {events_ = 0;updateEvent();};
 
 

@@ -1,18 +1,16 @@
 #pragma once
 #include "noncopyable.h"
-#include "Socket.h"
-#include "Channel.h"
 #include "InetAddr.h"
-
+#include "Channel.h"
+#include "Socket.h"
 #include <memory>
 
-class EventLoop;
-class Socket;
-class Channel;
 
+class EventLoop;
 class Acceptor:noncopyable{
 public:
     explicit Acceptor(EventLoop *loop,const InetAddr &addr);
+    ~Acceptor() = default;
 private:
     void accept();
 private:

@@ -3,6 +3,8 @@ file(REMOVE_RECURSE
   "../../lib/libreactor.pdb"
   "CMakeFiles/reactor.dir/Acceptor.cpp.o"
   "CMakeFiles/reactor.dir/Acceptor.cpp.o.d"
+  "CMakeFiles/reactor.dir/Buffer.cpp.o"
+  "CMakeFiles/reactor.dir/Buffer.cpp.o.d"
   "CMakeFiles/reactor.dir/Channel.cpp.o"
   "CMakeFiles/reactor.dir/Channel.cpp.o.d"
   "CMakeFiles/reactor.dir/Dispatch.cpp.o"
@@ -15,6 +17,8 @@ file(REMOVE_RECURSE
   "CMakeFiles/reactor.dir/InetAddr.cpp.o.d"
   "CMakeFiles/reactor.dir/Socket.cpp.o"
   "CMakeFiles/reactor.dir/Socket.cpp.o.d"
+  "CMakeFiles/reactor.dir/TcpConnect.cpp.o"
+  "CMakeFiles/reactor.dir/TcpConnect.cpp.o.d"
 )
 
 # Per-language clean rules from dependency scanning.

@@ -10,6 +10,7 @@ EventLoop::EventLoop():callFunc_(false),loop_(false),connCnt_(0)
     {
         LOG_FATAL("eventloop repeat create");
     }
+    eventloop = this;
     dispatch_ = std::make_unique<Dispatch>(this);
     int pair[2];
     if(::socketpair(AF_UNIX,SOCK_STREAM,0,pair) == -1){
@@ -42,6 +43,15 @@ void EventLoop::loop()
 
 void EventLoop::updateChannel(Channel *Channel)
 {
+    if (!isInLoopThread())
+    {
+        addFunc([=]()mutable{
+            updateChannel(Channel);
+        });
+        return;
+    }
+    
+
     if (Channel->index() == Channel::KNew)
         connCnt_ ++;   
     
@@ -50,13 +60,19 @@ void EventLoop::updateChannel(Channel *Channel)
 
 void EventLoop::removeChannel(Channel *channel)
 {
+    if(!isInLoopThread())
+    {
+        addFunc([=]{
+            removeChannel(channel);
+        });
+    } 
     assert(ChannelMap_.find(channel->fd()) != ChannelMap_.end());
     assert(ChannelMap_[channel->fd()] == channel);
     ChannelMap_.erase(channel->fd());
     connCnt_ --;
 }
 
-void EventLoop::addFunc(std::function<void()> &func)
+void EventLoop::addFunc(const std::function<void()> &func)
 {
     {
         std::lock_guard<std::mutex> guard(mutex_);

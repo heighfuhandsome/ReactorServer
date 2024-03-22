@@ -4,7 +4,7 @@
 # compile CXX with /usr/bin/g++
 CXX_DEFINES = 
 
-CXX_INCLUDES = -I/home/xj/projects/ReactorServer/src
+CXX_INCLUDES = -I/home/xj/projects/ReactorServer/ReactorServer
 
 CXX_FLAGS = --std=c++17
 

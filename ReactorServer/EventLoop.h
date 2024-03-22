@@ -1,28 +1,32 @@
 #pragma once
 #include "noncopyable.h"
+#include "Dispatch.h"
+#include "Channel.h"
 #include <atomic>
 #include <unordered_map>
 #include <functional>
 #include <mutex>
 #include <thread>
 #include <memory>
-#include "Dispatch.h"
-#include "Channel.h"
-
 
 class EventLoop:noncopyable{
 public:
     EventLoop();
+    ~EventLoop() = default;
     void loop();
     void stop() { loop_ = false;}
 
     void updateChannel(Channel *Channel);
     void removeChannel(Channel *Channel);
-    void addFunc(std::function<void()> &func);
-
+    void addFunc(const std::function<void()> &func);
+    bool isInLoopThread()
+    {
+        return tid_ == std::this_thread::get_id();
+    }
 private:
     void doFunc();
     void weakUp();
+
 private:
     std::atomic_bool loop_;
     std::unordered_map<int,Channel*> ChannelMap_; 
