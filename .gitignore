@@ -30,4 +30,4 @@
 *.app
 
 .vscode/
-*build/
+.clion.source.upload.marker
