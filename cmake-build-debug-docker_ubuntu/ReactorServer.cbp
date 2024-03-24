@@ -1,0 +1,201 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6"/>
+	<Project>
+		<Option title="ReactorServer"/>
+		<Option makefile_is_custom="1"/>
+		<Option compiler="gcc"/>
+		<Option virtualFolders="CMake Files\;CMake Files\ReactorServer\;"/>
+		<Build>
+			<Target title="all">
+				<Option working_dir="/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/Makefile&quot;  VERBOSE=1 all"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="demo">
+				<Option output="/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/demo" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/Makefile&quot;  VERBOSE=1 demo"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="demo/fast">
+				<Option output="/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/demo" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu"/>
+				<Option object_output="./"/>
+				<Option type="1"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/Makefile&quot;  VERBOSE=1 demo/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="edit_cache">
+				<Option working_dir="/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/Makefile&quot;  VERBOSE=1 edit_cache"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="rebuild_cache">
+				<Option working_dir="/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu"/>
+				<Option type="4"/>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/Makefile&quot;  VERBOSE=1 rebuild_cache"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="reactor">
+				<Option output="/home/xj/projects/ReactorServer/lib/libreactor.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/ReactorServer"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/xj/projects/ReactorServer/ReactorServer"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/ReactorServer/Makefile&quot;  VERBOSE=1 reactor"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/ReactorServer/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/ReactorServer/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/ReactorServer/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+			<Target title="reactor/fast">
+				<Option output="/home/xj/projects/ReactorServer/lib/libreactor.a" prefix_auto="0" extension_auto="0"/>
+				<Option working_dir="/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/ReactorServer"/>
+				<Option object_output="./"/>
+				<Option type="2"/>
+				<Option compiler="gcc"/>
+				<Compiler>
+					<Add directory="/home/xj/projects/ReactorServer/ReactorServer"/>
+					<Add directory="/usr/include/c++/11"/>
+					<Add directory="/usr/include/x86_64-linux-gnu/c++/11"/>
+					<Add directory="/usr/include/c++/11/backward"/>
+					<Add directory="/usr/lib/gcc/x86_64-linux-gnu/11/include"/>
+					<Add directory="/usr/local/include"/>
+					<Add directory="/usr/include/x86_64-linux-gnu"/>
+					<Add directory="/usr/include"/>
+				</Compiler>
+				<MakeCommands>
+					<Build command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/ReactorServer/Makefile&quot;  VERBOSE=1 reactor/fast"/>
+					<CompileFile command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/ReactorServer/Makefile&quot;  VERBOSE=1 &quot;$file&quot;"/>
+					<Clean command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/ReactorServer/Makefile&quot;  VERBOSE=1 clean"/>
+					<DistClean command="/usr/bin/gmake -j16 -f &quot;/home/xj/projects/ReactorServer/cmake-build-debug-docker_ubuntu/ReactorServer/Makefile&quot;  VERBOSE=1 clean"/>
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/Acceptor.cpp">
+			<Option target="reactor"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/Acceptor.h">
+			<Option target="reactor"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/Buffer.cpp">
+			<Option target="reactor"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/Buffer.h">
+			<Option target="reactor"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/Channel.cpp">
+			<Option target="reactor"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/Channel.h">
+			<Option target="reactor"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/Dispatch.cpp">
+			<Option target="reactor"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/Dispatch.h">
+			<Option target="reactor"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/EventLoop.cpp">
+			<Option target="reactor"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/EventLoop.h">
+			<Option target="reactor"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/EventLoopThreadPoll.cpp">
+			<Option target="reactor"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/EventLoopThreadPoll.h">
+			<Option target="reactor"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/InetAddr.cpp">
+			<Option target="reactor"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/InetAddr.h">
+			<Option target="reactor"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/Socket.cpp">
+			<Option target="reactor"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/Socket.h">
+			<Option target="reactor"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/TcpConnect.cpp">
+			<Option target="reactor"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/TcpConnect.h">
+			<Option target="reactor"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/TcpServer.cpp">
+			<Option target="reactor"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/TcpServer.h">
+			<Option target="reactor"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/main.cpp">
+			<Option target="demo"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\"/>
+		</Unit>
+		<Unit filename="/home/xj/projects/ReactorServer/ReactorServer/CMakeLists.txt">
+			<Option virtualFolder="CMake Files\ReactorServer\"/>
+		</Unit>
+	</Project>
+</CodeBlocks_project_file>

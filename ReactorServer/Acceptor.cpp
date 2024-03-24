@@ -15,23 +15,27 @@ static int createLfd()
 }
 
 
-Acceptor::Acceptor(EventLoop *loop, const InetAddr &addr):loop_(loop),mfd_(::open("/dev/null",O_RDONLY)) {
+Acceptor::Acceptor(EventLoop *loop, const InetAddr &addr):loop_(loop),mfd_(::open("/dev/null",O_RDONLY)),bindAddr_(addr){
     auto *socket = new Socket(createLfd());
     socket->setNonBlocking();
     socket->reusePort();
     socket->reuseAddr();
     socket->bind(addr);
-    socket->listen();
     listenSocket_.reset(socket);
-    LOG_INFO("listen fd is %d",listenSocket_->fd());
+//    LOG_INFO("listen fd is %d",listenSocket_->fd());
 
     auto *channel = new Channel(loop,listenSocket_->fd());
     channel->setReadCallBack([this](){
         accept();
     });
 
-    channel->enableRead();
     acceptChannel_.reset(channel);
+}
+
+void Acceptor::start() const
+{
+    listenSocket_->listen();
+    acceptChannel_->enableRead();
 }
 
 void Acceptor::accept() {
@@ -45,28 +49,11 @@ void Acceptor::accept() {
             ::close(::accept(acceptChannel_->fd(), nullptr, nullptr));
             mfd_ = ::open("/dev/null",O_RDONLY);
         }
-        LOG_ERROR("%s", strerror(errno));
+        LOG_ERROR("文件描述符已上线  %s", strerror(errno));
         return;
     }
 
-    
 
-    
-
-    // auto channelPtr = std::make_unique<Channel>(loop_,cfd);
-    // auto socket = std::make_unique<Socket>(cfd);
-    // socket->setNonBlocking();
-    // channelPtr->setReadCallBack([&]{
-    //     LOG_INFO("%d get readCallback",channelPtr->fd());
-    //     char buff[128]{0};
-    //     ::read(channelPtr->fd(),buff,sizeof buff);
-    //     LOG_INFO("%s",buff);
-    // });
-
-    // channelPtr->setCloseCallBack([&]{
-    //     LOG_INFO("%d disconnect",channelPtr->fd());
-    //     socket.reset();
-    //     channelPtr.reset();
-    // });
-    // channelPtr->enableRead();
+    if(acceptCallBack_)
+        acceptCallBack_(cfd,bindAddr_,{addr});
 }

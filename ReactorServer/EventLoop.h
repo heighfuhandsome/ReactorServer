@@ -17,12 +17,13 @@ public:
     void stop() { loop_ = false;}
 
     void updateChannel(Channel *Channel);
-    void removeChannel(Channel *Channel);
     void addFunc(const std::function<void()> &func);
     bool isInLoopThread()
     {
         return tid_ == std::this_thread::get_id();
     }
+    int getConnCnt() const{ return connCnt_;}
+    const std::string& name() const {return name_;};
 private:
     void doFunc();
     void weakUp();

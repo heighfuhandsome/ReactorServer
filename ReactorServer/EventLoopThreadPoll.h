@@ -9,20 +9,19 @@
 class EventLoop;
 class EventLoopThreadPoll:noncopyable{
 public:
-    explicit EventLoopThreadPoll(unsigned char size):size_(size){
-        loops_.reserve(size);
+    explicit EventLoopThreadPoll():size_(0){
     }
 
     unsigned char size()const{return size_;}
-
+    void setPollSize(uint8_t size) { size_ = size;}
     void start();
-    void stop();
+//    void stop() const;
+    EventLoop* getLoop() const ;
 private:
-    void initThread(EventLoop **returnLoop);
-
+    void createEventLoop(EventLoop **loop);
 private:
-    unsigned char size_;
-    std::vector<std::shared_ptr<EventLoop>> loops_;
+    uint8_t size_;
+    std::vector<EventLoop*> loops_;
     std::mutex mutex_;
     std::condition_variable cond_;
 };

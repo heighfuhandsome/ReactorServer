@@ -85,11 +85,11 @@
 			},
 			{
 				"backtrace" : 2,
-				"fragment" : "-L/home/xj/projects/ReactorServer",
+				"fragment" : "-L/home/xj/projects/ReactorServer/lib",
 				"role" : "libraryPath"
 			},
 			{
-				"fragment" : "-Wl,-rpath,/home/xj/projects/ReactorServer",
+				"fragment" : "-Wl,-rpath,/home/xj/projects/ReactorServer/lib",
 				"role" : "libraries"
 			},
 			{
@@ -100,11 +100,6 @@
 			{
 				"backtrace" : 3,
 				"fragment" : "../lib/libreactor.a",
-				"role" : "libraries"
-			},
-			{
-				"backtrace" : 3,
-				"fragment" : "-lpthread",
 				"role" : "libraries"
 			}
 		],

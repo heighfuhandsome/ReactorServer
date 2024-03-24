@@ -1,38 +1,44 @@
-//
-// Created by jiexiao on 2024/3/20.
-//
+
 #include "EventLoopThreadPoll.h"
 #include "EventLoop.h"
-void EventLoopThreadPoll::start() {
-    for(int i=0;i<size_;i++)
-    {
-        std::unique_lock<std::mutex> mutex(mutex_);
-        EventLoop *loop = nullptr;
-        std::thread t([this,&loop]{
-            initThread(&loop);
-        });
-        cond_.wait(mutex,[&](){
-            return loop;
-        });
-        loops_.push_back(std::shared_ptr<EventLoop>(loop));
-        t.detach();
-    }
+#include "Logger.h"
 
-}
-
-void EventLoopThreadPoll::stop() {
-    for(auto &e:loops_)
-    {
-        e->stop();
-    }
-}
-
-void EventLoopThreadPoll::initThread(EventLoop **returnLoop) {
-    EventLoop loop;
+void EventLoopThreadPoll::createEventLoop(EventLoop **loop) {
+    EventLoop loop1;
     {
         std::lock_guard<std::mutex> guard(mutex_);
-        *returnLoop = &loop;
+        *loop = &loop1;
         cond_.notify_one();
     }
-    loop.loop();
+    loop1.loop();
 }
+
+EventLoop *EventLoopThreadPoll::getLoop() const{
+    EventLoop *loop = loops_[0];
+    for(auto i : loops_)
+    {
+        if (i->getConnCnt() < loop->getConnCnt())
+            loop = i;
+    }
+
+    return loop;
+}
+
+void EventLoopThreadPoll::start() {
+
+    auto size = size_;
+    do{
+        EventLoop *loop = nullptr;
+        std::thread t([this,loop=&loop]{
+            createEventLoop(loop);
+        });
+        std::unique_lock<std::mutex> guard(mutex_);
+        cond_.wait(guard,[&]{
+            return loop;
+        });
+        loops_.push_back(loop);
+        t.detach();
+    }while(--size);
+
+}
+

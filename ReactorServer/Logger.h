@@ -13,7 +13,6 @@ enum class LoggerLeveL{
     FATANL
 };
 
-
 class Logger
 {
 public:

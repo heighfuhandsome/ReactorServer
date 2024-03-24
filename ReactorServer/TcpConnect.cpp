@@ -1,10 +1,8 @@
 #include "TcpConnect.h"
 #include "EventLoop.h"
-#include <sys/uio.h>
-#include <iconv.h>
 
-TcpConnect::TcpConnect(EventLoop *loop, int fd, const InetAddr &localAddr, const InetAddr &peerAddr):loop_(loop),localAddr_(localAddr),
-peerAddr_(peerAddr_),status_(ConnStatus::DISCONNECT)
+TcpConnect::TcpConnect(EventLoop *loop, int fd, const InetAddr &localAddr, const InetAddr &peerAddr,uint64_t id):loop_(loop),localAddr_(localAddr),
+peerAddr_(peerAddr),status_(ConnStatus::DISCONNECT),id_(id)
 {
     channel_ = std::make_unique<Channel>(loop,fd);
     socket_ = std::make_unique<Socket>(fd);
@@ -25,89 +23,42 @@ peerAddr_(peerAddr_),status_(ConnStatus::DISCONNECT)
     });
 
     channel_->enableRead();
-    if (connectCallBack_)
-    {
-        status_ = ConnStatus::CONNECTED;
-
-        if(loop_->isInLoopThread())
-        {
-            connectCallBack_(shared_from_this());
-        }
-        else
-        {
-            loop_->addFunc([this,ptr = shared_from_this()]{
-                connectCallBack_(ptr);
-            });
-
-        }
-    }
 }
 
 void TcpConnect::send(const std::string &msg)
 {
-    ssize_t size = 0;
-    while (out_.readableBytes() == 0)
-    {
-        size = ::send(channel_->fd(),msg.c_str(),msg.size(),0);
+    int len = ::send(channel_->fd(),msg.c_str(),msg.size(),0);
+    if (len == msg.size())
+        return;
 
-        if(size < 0) 
+    if (len == -1 )
+    {
+        if (errno == EAGAIN)
         {
-            LOG_ERROR("%s",strerror(errno));
-            break;
+
+        } else{
+            handlerClose();
         }
-
-        if(size == msg.size())
-            return;
-
-        out_.write(msg.c_str()+size);
-        break;
     }
 
-    if (size < 0 )
+    if (len>0)
     {
-        out_.write(msg);
-    }
-
-    if (!channel_->isWriting())
-    {
+        out_.write(msg.c_str()+len,msg.size()-len);
         channel_->enableWrite();
     }
-    
 }
 
 void TcpConnect::handlerRead()
 {
-    iovec vec[2];
-    char tmp[40960];
-    size_t writeableBytes = in_.writeableBytes();
-    vec[0].iov_base = in_.writeMemAddr();
-    vec[0].iov_len = writeableBytes;
-    vec[1].iov_base = tmp;
-    vec[1].iov_len = sizeof tmp;
-    ssize_t size = ::writev(channel_->fd(),vec,2);
 
-    if (size < 0)
+    int len  = in_.readSocket(channel_->fd());
+    if (len == 0)
     {
-        LOG_ERROR("%s",strerror(errno))
-        return;
-    }
-    
-
-    if (size == 0)
-    {
-        channel_->disableAll();
         handlerClose();
         return;
     }
 
-    if(size > writeableBytes)
-    {
-        ::memcpy(in_.writeMemAddr() + writeableBytes,tmp,size - writeableBytes);
-    }
-
-    in_.write(size);
-
-    if(readCallBack_)
+    if(readCallBack_ && in_.readableBytes()>0)
         readCallBack_(shared_from_this(),in_);
     
 }
@@ -119,25 +70,47 @@ void TcpConnect::handlerClose()
     {
         connectCallBack_(shared_from_this());
     }
-    
-
+    channel_->disableAll();
     if (closeCallBack_)
     {
-        closeCallBack_(shared_from_this());
+        closeCallBack_(id_);
     }
 }
 
 void TcpConnect::handlerWrite()
 {
-    ssize_t size = ::send(channel_->fd(),out_.readMemAddr(),out_.readableBytes(),0);
-    if(size == -1)
-        LOG_ERROR("%s",strerror(errno))
-
-    if (size > 0)
+    auto len = out_.writeSocket(channel_->fd());
+    if(len == -1)
     {
-        out_.retrieve(size);
+        if (errno==EAGAIN) return;
+        else
+        {
+            handlerClose();
+            return;
+        }
     }
 
-    bool complete = out_.readableBytes() == 0;    
-    complete? channel_->disableWrite() ? writeComplteteCallBack_ != nullptr ? writeComplteteCallBack_(shared_from_this()) : 0 :0 :0;
+    if (len > 0)
+    {
+        out_.retrieve(len);
+    }
+
+    if (out_.readableBytes() == 0)
+    {
+        if (writeCompleteCallBack_) writeCompleteCallBack_(shared_from_this());
+        channel_->disableWrite();
+    }
+
+}
+
+void TcpConnect::establish()
+{
+    status_ = ConnStatus::CONNECTED;
+
+    if(connectCallBack_ ){
+        if( loop_->isInLoopThread())
+            connectCallBack_(shared_from_this());
+        else
+            loop_->addFunc([this]{  connectCallBack_(shared_from_this()); });
+    }   
 }

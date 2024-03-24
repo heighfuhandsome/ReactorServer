@@ -192,9 +192,6 @@ ReactorServer_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 ReactorServer_SOURCE_DIR:STATIC=/home/xj/projects/ReactorServer
 
-//Dependencies for the target
-reactor_LIB_DEPENDS:STATIC=general;pthread;
-
 
 ########################
 # INTERNAL cache entries

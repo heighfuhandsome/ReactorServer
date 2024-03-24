@@ -195,6 +195,20 @@ ReactorServer/CMakeFiles/reactor.dir/TcpConnect.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/reactor.dir/TcpConnect.cpp.s"
 	cd /home/xj/projects/ReactorServer/build/ReactorServer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xj/projects/ReactorServer/ReactorServer/TcpConnect.cpp -o CMakeFiles/reactor.dir/TcpConnect.cpp.s
 
+ReactorServer/CMakeFiles/reactor.dir/TcpServer.cpp.o: ReactorServer/CMakeFiles/reactor.dir/flags.make
+ReactorServer/CMakeFiles/reactor.dir/TcpServer.cpp.o: ../ReactorServer/TcpServer.cpp
+ReactorServer/CMakeFiles/reactor.dir/TcpServer.cpp.o: ReactorServer/CMakeFiles/reactor.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --progress-dir=/home/xj/projects/ReactorServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Building CXX object ReactorServer/CMakeFiles/reactor.dir/TcpServer.cpp.o"
+	cd /home/xj/projects/ReactorServer/build/ReactorServer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT ReactorServer/CMakeFiles/reactor.dir/TcpServer.cpp.o -MF CMakeFiles/reactor.dir/TcpServer.cpp.o.d -o CMakeFiles/reactor.dir/TcpServer.cpp.o -c /home/xj/projects/ReactorServer/ReactorServer/TcpServer.cpp
+
+ReactorServer/CMakeFiles/reactor.dir/TcpServer.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Preprocessing CXX source to CMakeFiles/reactor.dir/TcpServer.cpp.i"
+	cd /home/xj/projects/ReactorServer/build/ReactorServer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/xj/projects/ReactorServer/ReactorServer/TcpServer.cpp > CMakeFiles/reactor.dir/TcpServer.cpp.i
+
+ReactorServer/CMakeFiles/reactor.dir/TcpServer.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green "Compiling CXX source to assembly CMakeFiles/reactor.dir/TcpServer.cpp.s"
+	cd /home/xj/projects/ReactorServer/build/ReactorServer && /usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/xj/projects/ReactorServer/ReactorServer/TcpServer.cpp -o CMakeFiles/reactor.dir/TcpServer.cpp.s
+
 # Object files for target reactor
 reactor_OBJECTS = \
 "CMakeFiles/reactor.dir/Acceptor.cpp.o" \
@@ -205,7 +219,8 @@ reactor_OBJECTS = \
 "CMakeFiles/reactor.dir/EventLoopThreadPoll.cpp.o" \
 "CMakeFiles/reactor.dir/InetAddr.cpp.o" \
 "CMakeFiles/reactor.dir/Socket.cpp.o" \
-"CMakeFiles/reactor.dir/TcpConnect.cpp.o"
+"CMakeFiles/reactor.dir/TcpConnect.cpp.o" \
+"CMakeFiles/reactor.dir/TcpServer.cpp.o"
 
 # External object files for target reactor
 reactor_EXTERNAL_OBJECTS =
@@ -219,9 +234,10 @@ reactor_EXTERNAL_OBJECTS =
 ../lib/libreactor.a: ReactorServer/CMakeFiles/reactor.dir/InetAddr.cpp.o
 ../lib/libreactor.a: ReactorServer/CMakeFiles/reactor.dir/Socket.cpp.o
 ../lib/libreactor.a: ReactorServer/CMakeFiles/reactor.dir/TcpConnect.cpp.o
+../lib/libreactor.a: ReactorServer/CMakeFiles/reactor.dir/TcpServer.cpp.o
 ../lib/libreactor.a: ReactorServer/CMakeFiles/reactor.dir/build.make
 ../lib/libreactor.a: ReactorServer/CMakeFiles/reactor.dir/link.txt
-	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/xj/projects/ReactorServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_10) "Linking CXX static library ../../lib/libreactor.a"
+	@$(CMAKE_COMMAND) -E cmake_echo_color --switch=$(COLOR) --green --bold --progress-dir=/home/xj/projects/ReactorServer/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_11) "Linking CXX static library ../../lib/libreactor.a"
 	cd /home/xj/projects/ReactorServer/build/ReactorServer && $(CMAKE_COMMAND) -P CMakeFiles/reactor.dir/cmake_clean_target.cmake
 	cd /home/xj/projects/ReactorServer/build/ReactorServer && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/reactor.dir/link.txt --verbose=$(VERBOSE)
 

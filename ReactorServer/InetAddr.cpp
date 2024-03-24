@@ -3,6 +3,7 @@
 //
 
 #include "InetAddr.h"
+#include "Logger.h"
 
 InetAddr::InetAddr(const std::string &ip, uint16_t port) {
     auto *addr = new sockaddr_in;
@@ -44,7 +45,9 @@ InetAddr& InetAddr::operator=(const InetAddr &addr) {
 }
 
 InetAddr::InetAddr(const InetAddr &addr) {
-    operator=(addr);
+    auto copy = new sockaddr;
+    ::memcpy(copy,addr.addr_.get(),sizeof(*copy));
+    addr_.reset(copy);
 }
 
 InetAddr::InetAddr(const sockaddr &addr):InetAddr(*(reinterpret_cast<sockaddr_in*>(&const_cast<sockaddr&>(addr))))

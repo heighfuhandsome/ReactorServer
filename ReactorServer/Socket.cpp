@@ -41,8 +41,6 @@ void Socket::setNoDelay() const  {
 }
 
 
-
-
 void Socket::setNonBlocking() const{
     int flag = ::fcntl(fd_,F_GETFL);
     if (flag==-1)

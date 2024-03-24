@@ -27,15 +27,11 @@ void Dispatch::updateChannel(Channel *channel, std::unordered_map<int, Channel *
 {
     u_char index = channel->index();
     int fd = channel->fd();
-    if ((index==Channel::KDeled) || (index==Channel::KNew))
+    assert(channel->index() == Channel::KNew  || channel->index() == Channel::KAdded);
+    if (index==Channel::KNew)
     {
-        if (index==Channel::KNew)
-        {
-          assert(map.find(fd) == map.end());  
-          map[channel->fd()] = channel;
-        }else{
-          assert(map.find(fd) != map.end());  
-        }
+
+        assert(map.find(channel->fd()) != map.end());
         update(channel,EPOLL_CTL_ADD);
         channel->setIndex(Channel::KAdded);
     }else{

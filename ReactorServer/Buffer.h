@@ -8,103 +8,66 @@
 #include <arpa/inet.h>
 class Buffer : noncopyable{
 public:
-    Buffer():readPos_(0),writePos_(0){
-        buffer_.reserve(4096);
+    explicit Buffer():readPos_(0),writePos_(0){
+        buffer_ = new char[4096];
+        capacity_ = 4096;
     }
-
-    uint32_t readableBytes() { return writePos_-readPos_; }
-
-    void write(char *str,int len)
+    ~Buffer()
     {
-        write({str,static_cast<size_t>(len)});
+        if (buffer_)
+        {
+            delete[] buffer_;
+            buffer_ = nullptr;
+        }
     }
 
-    void write(const std::string &str){
-        ::memcpy(&*buffer_.begin()+writePos_,str.c_str(),str.size());
-        writePos_+=str.size();
-    }
+
+    const char* peek() const{ return buffer_;}
+
+    uint32_t readableBytes() const { return writePos_-readPos_; }
+
+    std::string readAll(){return readN(readableBytes()); }
+
+    std::string readN(uint32_t n);
+
+    uint32_t writeableBytes() const{ return capacity_ - writePos_; }
+
+    void write(const char *str,uint32_t len);
+
+    void write(const std::string &str){ write(str.data(),str.size()); }
+
+    int readSocket(int fd);
+
+    void retrieve(uint32_t n){ if (n>readableBytes()) return; else readPos_+=n;  }
+    void retrieveAll(){ retrieve(readableBytes()); }
+
+    uint32_t writeSocket(int fd);
     
-    void setHead(uint64_t size)
-    {
-        uint32_t headSize = ::htonl(size);
-        ::memcpy(&*(buffer_.begin()+writePos_),&headSize,sizeof(headSize));
-        writePos_ +=4;
-    }
-
-    uint32_t getHead()
-    {
-        if (readableBytes()>=4)
-        {
-            uint32_t size;
-            ::memcpy(&size,&*(buffer_.begin()+readPos_),4);
-            readPos_+=4;
-            return ::ntohl(size);
-        }
-
-        return 0;
-    }
-
-    void retrieve(uint32_t n)
-    {
-        if(n>readableBytes())
-            retrieveAll();
-        readPos_ +=n;
-        if (readableBytes()<=40960 && buffer_.capacity()>40960 )
-            buffer_.resize(40960);
-        resetPos();
-    }
-
-    void retrieveAll()
-    {
-        retrieve(readableBytes());
-    }
-
-    std::string readnBytes(uint32_t n)
-    {
-        if (n > readableBytes())
-        {
-            LOG_ERROR("n > readableSize")
-            return "";
-        }
-        return {&*buffer_.begin()+readPos_,static_cast<size_t>(n)};
-    }
-
-    std::string readAll()
-    {
-        return readnBytes(readableBytes());
-    }
-
-    char* writeMemAddr()
-    {
-        return &*(buffer_.begin()+writePos_);
-    }
-
-    char* readMemAddr()
-    {
-        return &*(buffer_.begin()+readPos_);
-    }    
-
-    size_t writeableBytes()
-    {
-       return static_cast<size_t>(buffer_.capacity() - writePos_);
-    }
-
-    //直接拷贝到buffer_ 跟新writePos_
-    void write(ssize_t size)
-    {
-        writePos_+=size;
-    }
+//    void setHead(uint64_t size)
+//    {
+//        uint32_t headSize = ::htonl(size);
+//        ::memcpy(&*(buffer_.begin()+writePos_),&headSize,sizeof(headSize));
+//        writePos_ +=4;
+//    }
+//
+//    uint32_t getHead()
+//    {
+//        if (readableBytes()>=4)
+//        {
+//            uint32_t size;
+//            ::memcpy(&size,&*(buffer_.begin()+readPos_),4);
+//            readPos_+=4;
+//            return ::ntohl(size);
+//        }
+//
+//        return 0;
+//    }
 
 private:
-    void resetPos()
-    {
-        if (readableBytes() ==0)
-            readPos_ = writePos_ = 0;
-        
-    }
+    void expend(uint32_t len);
 private:
-    std::vector<char> buffer_;
+    char *buffer_;
     uint32_t readPos_;
     uint32_t writePos_;
-
+    uint32_t capacity_;
 };

@@ -346,6 +346,30 @@ TcpConnect.cpp.s:
 	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f ReactorServer/CMakeFiles/reactor.dir/build.make ReactorServer/CMakeFiles/reactor.dir/TcpConnect.cpp.s
 .PHONY : TcpConnect.cpp.s
 
+TcpServer.o: TcpServer.cpp.o
+.PHONY : TcpServer.o
+
+# target to build an object file
+TcpServer.cpp.o:
+	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f ReactorServer/CMakeFiles/reactor.dir/build.make ReactorServer/CMakeFiles/reactor.dir/TcpServer.cpp.o
+.PHONY : TcpServer.cpp.o
+
+TcpServer.i: TcpServer.cpp.i
+.PHONY : TcpServer.i
+
+# target to preprocess a source file
+TcpServer.cpp.i:
+	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f ReactorServer/CMakeFiles/reactor.dir/build.make ReactorServer/CMakeFiles/reactor.dir/TcpServer.cpp.i
+.PHONY : TcpServer.cpp.i
+
+TcpServer.s: TcpServer.cpp.s
+.PHONY : TcpServer.s
+
+# target to generate assembly for a file
+TcpServer.cpp.s:
+	cd /home/xj/projects/ReactorServer/build && $(MAKE) $(MAKESILENT) -f ReactorServer/CMakeFiles/reactor.dir/build.make ReactorServer/CMakeFiles/reactor.dir/TcpServer.cpp.s
+.PHONY : TcpServer.cpp.s
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -382,6 +406,9 @@ help:
 	@echo "... TcpConnect.o"
 	@echo "... TcpConnect.i"
 	@echo "... TcpConnect.s"
+	@echo "... TcpServer.o"
+	@echo "... TcpServer.i"
+	@echo "... TcpServer.s"
 .PHONY : help
 
 

@@ -21,7 +21,7 @@ EventLoop::EventLoop():callFunc_(false),loop_(false),connCnt_(0)
     weakUpChannel_->setReadCallBack([this]{
         char buff[128];
         ::recv(this->weakUpChannel_->fd(),buff,sizeof buff,0);
-        LOG_INFO("%s is weak up",name_.c_str());
+//        LOG_INFO("%s is weak up",name_.c_str());
     });
     tid_ = std::this_thread::get_id();
     char nameBuf[128]{0};
@@ -45,31 +45,25 @@ void EventLoop::updateChannel(Channel *Channel)
 {
     if (!isInLoopThread())
     {
-        addFunc([=]()mutable{
-            updateChannel(Channel);
+        addFunc([this,channel = Channel](){
+            updateChannel(channel);
         });
         return;
     }
     
-
     if (Channel->index() == Channel::KNew)
+    {
         connCnt_ ++;   
+        ChannelMap_[Channel->fd()] = Channel;
+    }
     
     dispatch_->updateChannel(Channel,ChannelMap_);
-}
-
-void EventLoop::removeChannel(Channel *channel)
-{
-    if(!isInLoopThread())
+    
+    if (Channel->index() == Channel::KDeled)
     {
-        addFunc([=]{
-            removeChannel(channel);
-        });
-    } 
-    assert(ChannelMap_.find(channel->fd()) != ChannelMap_.end());
-    assert(ChannelMap_[channel->fd()] == channel);
-    ChannelMap_.erase(channel->fd());
-    connCnt_ --;
+        connCnt_ --;
+        ChannelMap_.erase(Channel->fd());
+    }
 }
 
 void EventLoop::addFunc(const std::function<void()> &func)
