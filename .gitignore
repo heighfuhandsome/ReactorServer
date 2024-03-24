@@ -32,3 +32,4 @@
 .vscode/
 build/
 .clion.source.upload.marker
+cmake-build-debug-docker_ubuntu/

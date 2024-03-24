@@ -1,1 +1,0 @@
-/usr/bin/c++ -g -rdynamic CMakeFiles/demo.dir/main.cpp.o -o demo   -L/home/xj/projects/ReactorServer/lib  -Wl,-rpath,/home/xj/projects/ReactorServer/lib -lpthread ../lib/libreactor.a 
