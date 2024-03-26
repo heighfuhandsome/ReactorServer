@@ -10,6 +10,6 @@ add_compile_options(--std=c++17)
 
 add_subdirectory(${PROJECT_SOURCE_DIR}/ReactorServer)
 
-link_libraries(pthread reactor)
+link_libraries(pthread reactor mysqlclient jsoncpp) 
 
 add_executable(demo main.cpp)

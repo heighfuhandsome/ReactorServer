@@ -31,7 +31,6 @@ void TcpServer::createConnect(int cfd, const InetAddr &localAddr, const InetAddr
 
     connectContainer_[connectId_++] = conn;
     conn->establish();
-    LOG_INFO("eventLoop name is %s and conn count is %d",loop->name().c_str(),loop->getConnCnt())
 }
 
 void TcpServer::removeConn(uint64_t id)
