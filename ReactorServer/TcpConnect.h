@@ -17,10 +17,11 @@ public:
     explicit TcpConnect(EventLoop *loop,int fd,const InetAddr &localAddr,const InetAddr &peerAddr,uint64_t id);
     void send(const std::string &msg);
     std::any& getContext() {return context_;}
-    template <typename T>
-    void setContext(T &&t){ context_ = t;}
+    template<typename T>
+    void setContext(T&& t){ context_ = t;}
     const InetAddr &peerAddr() const { return peerAddr_; }
     ConnStatus connStatus() const {return status_;}
+    EventLoop* loop(){return loop_;}
 private:
     void handlerRead();
     void handlerClose();

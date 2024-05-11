@@ -8,6 +8,7 @@ peerAddr_(peerAddr),status_(ConnStatus::DISCONNECT),id_(id)
     socket_ = std::make_unique<Socket>(fd);
     socket_->setNonBlocking();
     socket_->setNoDelay();    
+    socket_->setKeepAvail();
 
     channel_->setReadCallBack([this]{
         handlerRead(); 

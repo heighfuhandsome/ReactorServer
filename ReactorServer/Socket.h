@@ -5,17 +5,17 @@
 class Socket:noncopyable{
 public:
     explicit Socket(int fd):fd_(fd){};
-    ~Socket(){
-       ::close(fd_); 
-    };
+    ~Socket() { ::close(fd_); };
     void setNonBlocking() const;
-    int fd() const{ return fd_;}
+    int fd() const { return fd_; }
     void setNoDelay() const;
     void reusePort() const;
     void reuseAddr() const;
     void listen() const;
+    void setKeepAvail() const;
 
     void bind(const InetAddr &addr) const;
-private:
+
+  private:
     int fd_;
 };

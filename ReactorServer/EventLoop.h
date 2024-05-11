@@ -8,6 +8,7 @@
 #include <mutex>
 #include <thread>
 #include <memory>
+#include <any>
 
 class EventLoop:noncopyable{
 public:
@@ -24,11 +25,16 @@ public:
     }
     int getConnCnt() const{ return connCnt_;}
     const std::string& name() const {return name_;};
+
+    template<typename T>
+    void setContext(T&& context){context_ = context;}
+    std::any& context(){ return context_;}
 private:
     void doFunc();
     void weakUp();
 
 private:
+    std::any context_;
     std::atomic_bool loop_;
     std::unordered_map<int,Channel*> ChannelMap_; 
     std::unique_ptr<Dispatch> dispatch_;

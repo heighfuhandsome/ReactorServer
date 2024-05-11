@@ -43,25 +43,6 @@ public:
 
     uint32_t writeSocket(int fd);
     
-//    void setHead(uint64_t size)
-//    {
-//        uint32_t headSize = ::htonl(size);
-//        ::memcpy(&*(buffer_.begin()+writePos_),&headSize,sizeof(headSize));
-//        writePos_ +=4;
-//    }
-//
-//    uint32_t getHead()
-//    {
-//        if (readableBytes()>=4)
-//        {
-//            uint32_t size;
-//            ::memcpy(&size,&*(buffer_.begin()+readPos_),4);
-//            readPos_+=4;
-//            return ::ntohl(size);
-//        }
-//
-//        return 0;
-//    }
 
 private:
     void expend(uint32_t len);

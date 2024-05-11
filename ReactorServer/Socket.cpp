@@ -3,6 +3,9 @@
 //
 
 #include "Socket.h"
+#include <asm-generic/socket.h>
+#include <cerrno>
+#include <cstring>
 #include <netinet/in.h>
 #include <netinet/tcp.h>
 #include <fcntl.h>
@@ -62,3 +65,24 @@ void Socket::bind(const InetAddr &addr) const {
         LOG_FATAL("%s", strerror(errno));
     }
 }
+
+void Socket::setKeepAvail() const{
+    int opt = 1;
+    if (setsockopt(fd_, SOL_SOCKET, SO_KEEPALIVE, &opt, static_cast<socklen_t>(sizeof opt)) == -1) {
+        LOG_FATAL("%s", strerror(errno))
+    }
+
+    opt = 3;
+    if (setsockopt(fd_,IPPROTO_TCP,TCP_KEEPIDLE ,&opt , static_cast<socklen_t>(sizeof opt)) == -1) {
+        LOG_FATAL("%s",strerror(errno))
+    }
+
+    if (setsockopt(fd_,IPPROTO_TCP,TCP_KEEPINTVL,&opt , static_cast<socklen_t>(sizeof opt)) == -1) {
+        LOG_FATAL("%s",strerror(errno))
+    }
+
+    if (setsockopt(fd_,IPPROTO_TCP, TCP_KEEPCNT,&opt , static_cast<socklen_t>(sizeof opt)) == -1) {
+        LOG_FATAL("%s",strerror(errno))
+    }
+}
+
